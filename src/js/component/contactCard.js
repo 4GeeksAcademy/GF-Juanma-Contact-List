@@ -1,16 +1,13 @@
-import React, { Component } from "react";
-import { Contacto } from "../views/contacto";
+import React from "react";
+
 export const ContactCard = (props) => {
+
     return (
         <li className="list-group-item">
             <div className="row w-100">
-                <div className="col-12 col-sm-6 col-md-3 px-0">
-                   
-                </div>
+                <div className="col-12 col-sm-6 col-md-3 px-0"></div>
                 <div className="col-12 col-sm-6 col-md-9 text-center text-sm-left">
-                    <div className="float-right">
-                  
-                    </div>
+                    <div className="float-right"></div>
                     <button className="btn">
                         <i className="fas fa-trash-alt" />
                     </button>
