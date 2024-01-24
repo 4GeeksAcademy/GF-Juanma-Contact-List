@@ -41,7 +41,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore({ demo: demo });
 			},
 			obtenerContactos: () => {
-				fetch("https://playground.4geeks.com/apis/fake/contact/agenda/juana")
+				fetch("https://playground.4geeks.com/apis/fake/contact/agenda/juanma")
 					.then(response => {
 						if (!response.ok) {
 							throw Error('no se ha podido obtener los contactos')
@@ -54,6 +54,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.catch(error => {
 						console.log(error);
 					});
+			},
+			añadircontacto: (fullname,email,phone,adress) => {
+				const store = getStore();
+				let nuevoContacto = {
+					fullname: fullname,
+					email: email,
+					phone: phone,
+					adress: adress
+					
+				}
+				let nuevaListaContactos = [...store.contacto, nuevoContacto]
+				setStore({contacto: nuevaListaContactos});
 			}
 		}
 	};

@@ -5,14 +5,12 @@ import { Context } from "../store/appContext";
 
 import "../../styles/demo.css";
 import { ContactCard } from "../component/contactCard";
-export const Contacto = (props) => {
-
+export const Contacto = () => {
+	const { store, actions } = useContext(Context);
 
 	return (
 		<div className="container">
-			{store.contacto.map(contact => (
-				<ContactCard key={contact.id} contact={contact} />
-			))}
+			
 		</div>
 
 	);
