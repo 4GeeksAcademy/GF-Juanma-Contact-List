@@ -66,6 +66,24 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 				let nuevaListaContactos = [...store.contactos, nuevoContacto]
 				setStore({contactos: nuevaListaContactos});
+			},
+			handleSubmit: (event) =>{
+				event.preventDefault();
+				const config = {
+					method: "POST",
+					body: JSON.stringify(data),
+					headers: {
+						'Content-Type': 'application/json'
+					}
+				}
+				console.log(data)
+				fetch("https://playground.4geeks.com/apis/fake/contact/", config)
+					.then((response) => response.text())
+					.catch(error => console.log('error', error))
+					.then(response => {
+						actions.obtenerContactos();
+						navigate("/contacto");
+					});
 			}
 		}
 	};

@@ -29,7 +29,7 @@ export const AddContact = () => {
 				navigate("/contacto");
 			});
 	}
-	//usestate por cada input con onchage
+	
 	return (
 		<div className="container">
 			<h1 className="text-center">Add a new contact</h1>

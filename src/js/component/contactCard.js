@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 
+
 import { Context } from "../store/appContext";
 
 import "../../styles/demo.css";
@@ -17,19 +18,25 @@ export const ContactCard = ({ contacto }) => {
                 />
             </div>
             <div className="col-md-7 col-10">
-                <div className="name">{contacto.full_name}</div>
+                <div className="name"><strong>{contacto.full_name}</strong>
+                </div>
                 <div className="address">
-                 
+                    <i className="fas fa-map-marker-alt" />
                     {contacto.address}
                 </div>
                 <div className="phone">
-                    
+                    <i className="fas fa-phone"></i>
                     {contacto.phone}
                 </div>
                 <div className="email">
-                    
+                    <i className="fas fa-envelope" />
                     {contacto.email}
                 </div>
+
+            </div>
+            <div className="col-md-3 iconos">
+                <i className="fas fa-trash-alt" />
+                <i className="far fa-edit" />
             </div>
         </>
     );

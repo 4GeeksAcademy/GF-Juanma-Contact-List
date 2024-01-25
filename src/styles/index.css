@@ -2,5 +2,8 @@ img{
     height: 150px;
     width: 150px;
     object-fit: cover;
-    
+    margin-bottom: 5px;
+}
+i{
+    margin-right: 10px;
 }
