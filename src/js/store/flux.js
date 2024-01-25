@@ -14,7 +14,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 
 			],
-			contacto: [],
+			contactos: [],
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -48,7 +48,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						} return response.json()
 					})
 					.then(data => {
-						setStore({ contacto: data })
+						setStore({ contactos: data })
 						
 					})
 					.catch(error => {
@@ -64,8 +64,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					adress: adress
 					
 				}
-				let nuevaListaContactos = [...store.contacto, nuevoContacto]
-				setStore({contacto: nuevaListaContactos});
+				let nuevaListaContactos = [...store.contactos, nuevoContacto]
+				setStore({contactos: nuevaListaContactos});
 			}
 		}
 	};
