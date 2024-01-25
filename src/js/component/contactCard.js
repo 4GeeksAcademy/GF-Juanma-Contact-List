@@ -35,7 +35,7 @@ export const ContactCard = ({ contacto }) => {
 
             </div>
             <div className="col-md-3 iconos">
-                <i className="fas fa-trash-alt" />
+                <i className="fas fa-trash-alt"  />
                 <i className="far fa-edit" />
             </div>
         </>

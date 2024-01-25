@@ -29,6 +29,8 @@ export const AddContact = () => {
 				navigate("/contacto");
 			});
 	}
+
+	
 	
 	return (
 		<div className="container">
@@ -52,6 +54,7 @@ export const AddContact = () => {
 				</div>
 				<button type="submit"  className="btn btn-primary">Save</button>
 			</form>
+			<Link to="/contacto">or get back to contacts</Link>
 		</div>
 	);
 };

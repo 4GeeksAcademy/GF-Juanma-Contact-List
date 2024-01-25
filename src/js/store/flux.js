@@ -84,7 +84,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 						actions.obtenerContactos();
 						navigate("/contacto");
 					});
-			}
+			},
+		
 		}
 	};
 };
