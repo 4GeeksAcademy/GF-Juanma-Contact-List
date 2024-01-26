@@ -95,7 +95,35 @@ const getState = ({ getStore, getActions, setStore }) => {
 				});
 
 
-		}
+		},
+		editarContcto: (id) => {
+			fetch(`https://playground.4geeks.com/apis/fake/contact/${id}`, {
+				method: 'PUT',
+				request: {
+					'Content-Type': 'application/json'
+				}, body:
+				{
+					"full_name": "Dave Bradley",
+					"email": "dave@gmail.com",
+					"agenda_slug": "juanma",
+					"address":"47568 NW 34ST, 33434 FL, USA",
+					"phone":"7864445566"
+				}
+
+			})
+				.then(response => {
+					if (!response.ok) {
+						throw Error('no se ha podido obtener los contactos')
+					} return response.json()
+				})
+				.then(data => {
+					console.log("contacto borrado exitosamente", data)
+					getActions().obtenerContactos();
+				})
+				.catch(error => {
+					console.log('no se borro nada', error)
+				})
+		},
 	}
 };
 }
