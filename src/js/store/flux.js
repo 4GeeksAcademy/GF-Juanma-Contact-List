@@ -49,45 +49,54 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.then(data => {
 						setStore({ contactos: data })
-						
+
 					})
 					.catch(error => {
 						console.log(error);
 					});
 			},
-			añadircontacto: (fullname,email,phone,adress) => {
-				const store = getStore();
-				let nuevoContacto = {
-					fullname: fullname,
-					email: email,
-					phone: phone,
-					adress: adress
-					
-				}
-				let nuevaListaContactos = [...store.contactos, nuevoContacto]
-				setStore({contactos: nuevaListaContactos});
-			},
-			handleSubmit: (event) =>{
-				event.preventDefault();
-				const config = {
-					method: "POST",
-					body: JSON.stringify(data),
+
+			borrarContacto: (id) => {
+				fetch(`https://playground.4geeks.com/apis/fake/contact/${id}`, {
+					method: 'DELETE',
 					headers: {
 						'Content-Type': 'application/json'
 					}
-				}
-				console.log(data)
-				fetch("https://playground.4geeks.com/apis/fake/contact/", config)
-					.then((response) => response.text())
-					.catch(error => console.log('error', error))
-					.then(response => {
-						actions.obtenerContactos();
-						navigate("/contacto");
-					});
-			},
-		
-		}
-	};
-};
 
+				})
+					.then(response => {
+						if (!response.ok) {
+							throw Error('no se ha podido obtener los contactos')
+						} return response.json()
+					})
+					.then(data => {
+						console.log("contacto borrado exitosamente", data)
+						getActions().obtenerContactos();
+					})
+					.catch(error => {
+						console.log('no se borro nada', error)
+					})
+			},
+			añadirContacto: (data, volverAHome) => {
+				const config = {
+				method: "POST",
+				body: JSON.stringify(data),
+				headers: {
+					'Content-Type': 'application/json'
+				}
+			}
+			console.log(data)
+			fetch("https://playground.4geeks.com/apis/fake/contact/", config)
+				.then((response) => response.text())
+				.catch(error => console.log('error', error))
+				.then(response => {
+					getActions().obtenerContactos();
+					volverAHome()
+				});
+
+
+		}
+	}
+};
+}
 export default getState;
