@@ -35,8 +35,18 @@ export const ContactCard = ({ contacto }) => {
 
             </div>
             <div className="col-md-3 iconos">
-                <button onClick={() => {actions.borrarContacto(contacto.id)}} ><i className="fas fa-trash-alt"  /></button>
-                <i className="far fa-edit" />
+                <button style={{
+                    background: 'transparent',
+                    border: 'none',
+                    cursor: 'pointer',
+                    padding: 0,
+                }}onClick={() => {actions.borrarContacto(contacto.id)}} ><i className="fas fa-trash-alt"  /></button>
+                <button style={{
+                    background: 'transparent',
+                    border: 'none',
+                    cursor: 'pointer',
+                    padding: 0,
+                }}onClick={() => {actions.editarContacto(contacto.id)}}><i className="far fa-edit" /></button>
             </div>
         </>
     );
