@@ -41,12 +41,12 @@ export const ContactCard = ({ contacto }) => {
                     cursor: 'pointer',
                     padding: 0,
                 }}onClick={() => {actions.borrarContacto(contacto.id)}} ><i className="fas fa-trash-alt"  /></button>
-                <button style={{
+                <Link to= {`/editContact/${contacto.id}`} style={{
                     background: 'transparent',
                     border: 'none',
                     cursor: 'pointer',
                     padding: 0,
-                }}onClick={() => {actions.editarContacto(contacto.id)}}><i className="far fa-edit" /></button>
+                }}><i className="far fa-edit" /></Link>
             </div>
         </>
     );

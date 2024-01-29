@@ -96,12 +96,19 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 
 		},
-		editarContacto: (id) => {
+		editarContacto: (id, full_name, email, phone, address, volverAHome ) => {
 			fetch(`https://playground.4geeks.com/apis/fake/contact/${id}`, {
 				method: 'PUT',
 				headers: {
 					'Content-Type': 'application/json'
-				}
+				},
+				body: JSON.stringify({
+					"full_name": full_name,
+					"email": email,
+					"phone": phone,
+					"address": address,
+					"agenda_slug": "juanma"
+				})
 
 			})
 				.then(response => {
@@ -112,9 +119,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 				.then(data => {
 					console.log("contacto editado exitosamente", data)
 					getActions().obtenerContactos();
+					volverAHome();
 				})
 				.catch(error => {
-					console.log('no se edito', error)
+					console.log('no se editó', error)
 				})
 		},
 	}
